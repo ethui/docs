@@ -13,6 +13,34 @@
           "slug": "installation"
         }
       ]
+    },
+    {
+      "title": "Features",
+      "slug": "features",
+      "subsections": [
+        {
+          "title": "Fast mode",
+          "slug": "fast-mode"
+        },
+        {
+          "title": "Auto impersonation",
+          "slug": "auto-impersonation"
+        }
+      ]
+    },
+    {
+      "title": "Integrations",
+      "slug": "integrations",
+      "subsections": [
+        {
+          "title": "Anvil",
+          "slug": "anvil"
+        },
+        {
+          "title": "Forge",
+          "slug":"forge"
+        }
+      ]
     }
   ]
 }
