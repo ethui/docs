@@ -1,7 +1,7 @@
 {
   "sections": [
     {
-      "title": "Getting Started",
+      "title": "getting-started",
       "slug": "getting-started",
       "children": [
         {
@@ -9,13 +9,13 @@
           "slug": "installation"
         },
         {
-          "title": "What Is ethui",
+          "title": "What is ethui?",
           "slug": "what-is-ethui"
         }
       ]
     },
     {
-      "title": "Integrations",
+      "title": "integrations",
       "slug": "integrations",
       "children": [
         {
@@ -29,7 +29,7 @@
       ]
     },
     {
-      "title": "Features",
+      "title": "features",
       "slug": "features",
       "children": [
         {

@@ -1,1 +1,6 @@
-# TODO auto impersonation
+---
+title: Auto Impersonation
+slug: auto-impersonation
+---
+
+# Auto Impersonation

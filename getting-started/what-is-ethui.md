@@ -1,3 +1,8 @@
+---
+title: What is ethui?
+slug: what-is-ethui
+---
+
 # What is ethui?
 
 ethui is a tool for interacting with Ethereum chains in a developer-friendly way.

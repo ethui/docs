@@ -1,3 +1,8 @@
+---
+title: Installation
+slug: installation
+---
+
 # Installation
 
 ethui is currently avaialable for MacOS and Linux.

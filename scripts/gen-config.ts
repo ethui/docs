@@ -1,13 +1,33 @@
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { join, basename,relative } from 'node:path';
+import { unified } from 'unified';
+import { join } from 'node:path';
+import markdown from 'remark-parse';
+import frontmatter from 'remark-frontmatter';
+import { visit } from 'unist-util-visit';
+import * as yaml from 'js-yaml';
 
 const baseDir = './';
 const outputFile = './config.json';
 
-const exclude = (entry)=>!entry.name.startsWith('.') && entry.name !=="scripts";
+const exclude = (entry: { name: string }) => !entry.name.startsWith('.') && entry.name !== "scripts" && entry.name !== "node_modules";
 
-const titleize = (str: string) => 
-  str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ').replace('Ethui', 'ethui');
+const titleize = (str: string) =>
+  str.replace('-[a-z]', (match) => match.toUpperCase().replace('-', ' '));
+
+const extractYAMLFrontMatter = (filePath: string): any => {
+  const content = readFileSync(filePath, 'utf-8');
+  const fileTree = unified()
+    .use(markdown)
+    .use(frontmatter)
+    .parse(content);
+
+  let yamlData: unknown;
+  visit(fileTree, 'yaml', (node) => {
+    yamlData = yaml.load(node.value);
+  });
+
+  return yamlData;
+};
 
 const getMarkdownFiles = (dir: string): any => {
   const entries = readdirSync(dir, { withFileTypes: true });
@@ -23,13 +43,10 @@ const getMarkdownFiles = (dir: string): any => {
       };
     }
     if (entry.isFile() && entry.name.endsWith('.md')) {
-      const content = readFileSync(fullPath, 'utf-8');
-      const titleMatch = content.match(/^# (.+)$/m);
-      const slug = basename(fullPath, '.md');
-    const title = titleize(slug);
+      const frontmatter = extractYAMLFrontMatter(fullPath);
       return {
-        title,
-        slug
+        title: frontmatter.title,
+        slug: frontmatter.slug
       };
     }
     return null;
