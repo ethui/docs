@@ -1,6 +1,34 @@
 {
   "sections": [
     {
+      "title": "Getting Started",
+      "slug": "getting-started",
+      "children": [
+        {
+          "title": "Installation",
+          "slug": "installation"
+        },
+        {
+          "title": "What Is ethui",
+          "slug": "what-is-ethui"
+        }
+      ]
+    },
+    {
+      "title": "Integrations",
+      "slug": "integrations",
+      "children": [
+        {
+          "title": "Forge",
+          "slug": "forge"
+        },
+        {
+          "title": "Anvil",
+          "slug": "anvil"
+        }
+      ]
+    },
+    {
       "title": "Features",
       "slug": "features",
       "children": [
@@ -11,34 +39,6 @@
         {
           "title": "Auto Impersonation",
           "slug": "auto-impersonation"
-        }
-      ]
-    },
-    {
-      "title": "Integrations",
-      "slug": "integrations",
-      "children": [
-        {
-          "title": "forge",
-          "slug": "forge"
-        },
-        {
-          "title": "anvil",
-          "slug": "anvil"
-        }
-      ]
-    },
-    {
-      "title": "Getting Started",
-      "slug": "getting-started",
-      "children": [
-        {
-          "title": "What is ethui",
-          "slug": "what-is-ethui"
-        },
-        {
-          "title": "Installation",
-          "slug": "installation"
         }
       ]
     }

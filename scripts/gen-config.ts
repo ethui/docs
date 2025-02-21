@@ -6,26 +6,27 @@ const outputFile = './config.json';
 
 const exclude = (entry)=>!entry.name.startsWith('.') && entry.name !=="scripts";
 
-const camelize = (str: string) => str.replace(/\s/g, '-').toLowerCase();
+const titleize = (str: string) => 
+  str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ').replace('Ethui', 'ethui');
 
-const getSections = (dir: string): any => {
+const getMarkdownFiles = (dir: string): any => {
   const entries = readdirSync(dir, { withFileTypes: true });
   const result = entries.filter(exclude).map(entry => {
     const fullPath = join(dir, entry.name);
-    const title = entry.name;
-      const slug = camelize(title);
+    const slug = entry.name;
+    const title = titleize(slug);
     if (entry.isDirectory()) {
       return {
         title,
         slug,
-        children: getSections(fullPath)
+        children: getMarkdownFiles(fullPath)
       };
     }
     if (entry.isFile() && entry.name.endsWith('.md')) {
       const content = readFileSync(fullPath, 'utf-8');
       const titleMatch = content.match(/^# (.+)$/m);
-      const title = basename(fullPath, '.md');
-      const slug = camelize(title);
+      const slug = basename(fullPath, '.md');
+    const title = titleize(slug);
       return {
         title,
         slug
@@ -37,8 +38,9 @@ const getSections = (dir: string): any => {
 };
 
 const config = {
-  sections: getSections(baseDir)
+  sections: getMarkdownFiles(baseDir)
 };
 
 writeFileSync(outputFile, JSON.stringify(config, null, 2));
 console.log(`Config generated: ${outputFile}`);
+console.log(JSON.stringify(config, null, 2));
