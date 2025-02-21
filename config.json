@@ -1,16 +1,16 @@
 {
-  "sections":[
+  "sections": [
     {
       "title": "Getting Started",
       "slug": "getting-started",
-      "children": [
+      "subsections": [
         {
           "title": "What is ethui?",
-          "slug": "what-is-ethui",
+          "slug": "what-is-ethui"
         },
         {
           "title": "Installation",
-          "slug": "installation",
+          "slug": "installation"
         }
       ]
     }
