@@ -12,7 +12,7 @@ const outputFile = './config.json';
 const exclude = (entry: { name: string }) => !entry.name.startsWith('.') && entry.name !== "scripts" && entry.name !== "node_modules";
 
 const titleize = (str: string) =>
-  str.replace(/(?<=-)[a-z]|^[a-z]/, (match) => match.toUpperCase().replace('-', ' '));
+  str.replace(/(?<=-)[a-z]|^[a-z]/, (match) => match.toUpperCase()).replace('-', ' ');
 
 const extractYAMLFrontMatter = (filePath: string): any => {
   const content = readFileSync(filePath, 'utf-8');
