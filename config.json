@@ -1,7 +1,7 @@
 {
   "sections": [
     {
-      "title": "getting-started",
+      "title": "Getting-started",
       "slug": "getting-started",
       "children": [
         {
@@ -15,7 +15,7 @@
       ]
     },
     {
-      "title": "integrations",
+      "title": "Integrations",
       "slug": "integrations",
       "children": [
         {
@@ -29,7 +29,7 @@
       ]
     },
     {
-      "title": "features",
+      "title": "Features",
       "slug": "features",
       "children": [
         {
